@@ -1,6 +1,7 @@
 package fr.projetgraine.business;
 
 import jakarta.persistence.*;
+import lombok.Getter;
 
 import java.util.List;
 
@@ -10,6 +11,7 @@ public class Sachet {
     @GeneratedValue
     private Long id;
     private int poidsEnGrammes;
+    @Getter
     private float prixEnEuros;
     @ManyToOne
     @JoinColumn(name = "typedegraine_id")
@@ -20,7 +22,4 @@ public class Sachet {
     @ManyToOne
     private Fournisseur fournisseur;
 
-    public float getPrixEnEuros() {
-        return prixEnEuros;
-    }
 }
