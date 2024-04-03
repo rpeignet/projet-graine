@@ -55,4 +55,12 @@ public class TypeDeGraine {
             inverseJoinColumns = @JoinColumn(name = "recette_id")
     )
     private List<Recette> recettes;
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getNom() {
+        return nom;
+    }
 }

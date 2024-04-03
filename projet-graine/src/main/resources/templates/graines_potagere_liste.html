@@ -2,25 +2,42 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Liste des graines potagères</title>
+    <title>Liste des types de graines</title>
 </head>
 <body>
-<h1>Liste des graines potagères</h1>
+<h1>Liste des types de graines</h1>
+<form id="filterForm">
+    <select id="familleSelect" onchange="filtrerTypeGraines()">
+        <option value="">Famille type graine</option>
+        <th:block th:each="famille : ${familles}">
+            <option th:text="${famille.getNom()}" th:value="${famille.getId()}"></option>
+        </th:block>
+    </select>
+</form>
 <table>
     <thead>
     <tr>
         <th>ID</th>
         <th>Nom</th>
-        <th>Description</th>
         <!-- Ajoutez plus de colonnes si nécessaire -->
     </tr>
     </thead>
-    <tbody>
-    <!-- Utilisez Thymeleaf pour itérer sur la liste de recettes -->
-    <tr th:each="Graines : ${typeDeGraines}">
+    <tbody id="typeGraineBody">
+    <!-- Utilisez Thymeleaf pour itérer sur la liste de types de graines -->
+    <tr th:each="typeDeGraine : ${typeDeGraines}">
+        <td th:text="${typeDeGraine.getId()}"></td>
+        <td th:text="${typeDeGraine.getNom()}"></td>
         <!-- Ajoutez plus de cellules si nécessaire -->
     </tr>
     </tbody>
 </table>
+<script>
+    function filtrerTypeGraines() {
+        var familleId = document.getElementById("familleSelect").value;
+        var url = "/listeTypeGraine?familleId=" + familleId;
+        console.log(url)
+        document.location = url
+    }
+</script>
 </body>
 </html>

@@ -18,4 +18,12 @@ public class Famille {
 
     @OneToMany(mappedBy = "famille")
     private List<TypeDeGraine> typesDeGraine;
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getNom() {
+        return nom;
+    }
 }
