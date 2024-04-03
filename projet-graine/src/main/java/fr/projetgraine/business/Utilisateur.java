@@ -8,14 +8,14 @@ import jakarta.persistence.Id;
 public class Utilisateur {
     @Id
     @GeneratedValue
-    private Long id;
+    protected Long id;
 
-    private String nom;
+    protected String nom;
 
-    private String prenom;
+    protected String prenom;
 
-    private String adresseEmail;
+    protected String adresseEmail;
 
-    private String motDePasse;
+    protected String motDePasse;
 
 }

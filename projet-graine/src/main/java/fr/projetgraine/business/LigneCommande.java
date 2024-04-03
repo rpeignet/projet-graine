@@ -14,4 +14,12 @@ public class LigneCommande {
     @ManyToOne
     @JoinColumn(name = "sachet_id")
     private Sachet sachet;
+
+    public Sachet getSachet() {
+        return sachet;
+    }
+
+    public int getQuantite() {
+        return quantite;
+    }
 }

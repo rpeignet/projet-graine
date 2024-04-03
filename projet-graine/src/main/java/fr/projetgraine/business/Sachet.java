@@ -19,4 +19,8 @@ public class Sachet {
     private List<LigneCommande> lignesCommande;
     @ManyToOne
     private Fournisseur fournisseur;
+
+    public float getPrixEnEuros() {
+        return prixEnEuros;
+    }
 }

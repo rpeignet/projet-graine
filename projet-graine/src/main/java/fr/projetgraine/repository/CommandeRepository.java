@@ -12,4 +12,9 @@ public interface CommandeRepository extends JpaRepository<Commande, Long> {
 
     @Query("SELECT FUNCTION('MONTH', c.dateHeureDEnvoi) AS month, COUNT(c) FROM Commande c GROUP BY month ORDER BY month")
     List<Object[]> countCommandesByMonth();
+
+    //Le calcul du montant total et le tri seront effectués dans le service
+    @Query("SELECT c FROM Commande c JOIN FETCH c.lignesCommande")
+    List<Commande> findAllWithLignesCommande();
+
 }

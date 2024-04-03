@@ -6,7 +6,10 @@ import fr.projetgraine.service.TypeDeGraineService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.time.temporal.IsoFields;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
@@ -22,4 +25,13 @@ public class TypeDeGraineServiceImpl implements TypeDeGraineService {
     public List<TypeDeGraine> findByIdFamille(Long idFamille) {
         return typeDeGraineRepository.findByIdFamille(idFamille);
     }
+
+    public List<TypeDeGraine> findPlantableSeeds() {
+        int currentWeek = LocalDate.now().get(IsoFields.WEEK_OF_WEEK_BASED_YEAR);
+        List<TypeDeGraine> allSeeds = typeDeGraineRepository.findAll();
+        return allSeeds.stream()
+                .filter(seed -> seed.getSemaineDePlantationMin() <= currentWeek && seed.getSemaineDePlantationMax() >= currentWeek)
+                .collect(Collectors.toList());
+    }
+
 }
