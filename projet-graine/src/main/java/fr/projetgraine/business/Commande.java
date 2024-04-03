@@ -21,4 +21,8 @@ public class Commande {
     @ManyToOne
     @JoinColumn(name = "jardinier_id")
     private Jardinier jardinier;
+
+    public List<LigneCommande> getLignesCommande() {
+        return lignesCommande;
+    }
 }
