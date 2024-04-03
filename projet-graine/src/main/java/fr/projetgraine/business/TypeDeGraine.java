@@ -19,8 +19,7 @@ public class TypeDeGraine {
     @ManyToOne
     @JoinColumn(name = "famille_id")
     private Famille famille;
-    @OneToMany
-    @JoinColumn(name = "sachet_id")
+    @OneToMany(mappedBy = "typeDeGraine")
     private List<Sachet> sachets;
     @ManyToMany
     @JoinTable(

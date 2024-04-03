@@ -1,9 +1,6 @@
 package fr.projetgraine.business;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.*;
 
 import java.util.List;
 
@@ -19,4 +16,8 @@ public class Recette {
 
     @ManyToMany(mappedBy = "recettes")
     private List<TypeDeGraine> typeDeGraines;
+
+    @ManyToOne
+    @JoinColumn(name = "jardinier_id")
+    private Jardinier jardinier;
 }

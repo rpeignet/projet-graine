@@ -11,8 +11,7 @@ public class Commande {
     @GeneratedValue
     private Long id;
     private LocalDateTime dateHeureDEnvoi;
-    @OneToMany
-    @JoinColumn(name = "lignecommande_id")
+    @OneToMany(mappedBy = "commande")
     private List<LigneCommande> lignesCommande;
     @ManyToOne
     @JoinColumn(name = "jardinier_id")

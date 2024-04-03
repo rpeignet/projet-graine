@@ -8,7 +8,7 @@ public class LigneCommande {
     @GeneratedValue
     private Long id;
     private int quantite;
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "commande_id")
     private Commande commande;
     @ManyToOne

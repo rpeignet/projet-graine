@@ -11,6 +11,7 @@ import java.util.List;
 public class Jardinier extends Utilisateur {
     private LocalDate dateDeNaissance;
     @OneToMany
-    @JoinColumn(name = "commande_id")
     private List<Commande> commandes;
+    @OneToMany
+    private List<Recette> recettes;
 }
