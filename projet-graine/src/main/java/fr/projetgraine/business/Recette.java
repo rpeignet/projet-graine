@@ -1,6 +1,8 @@
 package fr.projetgraine.business;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 import java.util.List;
 
@@ -10,6 +12,8 @@ public class Recette {
     @GeneratedValue
     private Long id;
 
+    @NotNull(message = "L'intitulé de la recette ne doit pas être null")
+    @NotBlank(message = "L'intitulé de la recette ne doit pas être vide")
     private String intitule;
 
     private String contenu;

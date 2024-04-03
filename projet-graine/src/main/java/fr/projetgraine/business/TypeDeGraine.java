@@ -1,6 +1,10 @@
 package fr.projetgraine.business;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 import java.util.List;
 
@@ -15,22 +19,73 @@ public class TypeDeGraine {
     @Column(name = "seedName")
     private String nom;
 
+    @Size(min = 40, message = "La description doit contenir au minimum 40 caractères")
     @Column(name = "description")
     private String description;
 
+
+    @Min(value = 1, message = "La semaine de plantation minimale doit être >= 1")
+    @Max(value = 52, message = "La semaine de plantation minimale doit être <= 52")
     @Column(name = "minPlantWeek")
     private int semaineDePlantationMin;
+
+    @Min(value = 1, message = "La semaine de plantation maximale doit être >= 1")
+    @Max(value = 52, message = "La semaine de plantation maximale doit être <= 52")
     @Column(name = "maxPlantWeek")
     private int semaineDePlantationMax;
     @Column(name = "spaceBtwFeet")
     private float espacementEntrePiedsEnCentimetre;
 
-    @Column(name = "spaceBtwLine")
+    @Column(name = "s    @Id\n" +
+            "    @GeneratedValue(strategy = GenerationType.IDENTITY)\n" +
+            "    @Column(name = \"id\")\n" +
+            "    private Long id;\n" +
+            "\n" +
+            "    @Column(name = \"seedName\")\n" +
+            "    private String nom;\n" +
+            "\n" +
+            "    @Size(min = 40, message = \"La description doit contenir au minimum 40 caractères\")\n" +
+            "    @Column(name = \"description\")\n" +
+            "    private String description;\n" +
+            "\n" +
+            "\n" +
+            "    @Min(value = 1, message = \"La semaine de plantation minimale doit être >= 1\")\n" +
+            "    @Max(value = 52, message = \"La semaine de plantation minimale doit être <= 52\")\n" +
+            "    @Column(name = \"minPlantWeek\")\n" +
+            "    private int semaineDePlantationMin;\n" +
+            "\n" +
+            "    @Min(value = 1, message = \"La semaine de plantation maximale doit être >= 1\")\n" +
+            "    @Max(value = 52, message = \"La semaine de plantation maximale doit être <= 52\")\n" +
+            "    @Column(name = \"maxPlantWeek\")\n" +
+            "    private int semaineDePlantationMax;\n" +
+            "    @Column(name = \"spaceBtwFeet\")\n" +
+            "    private float espacementEntrePiedsEnCentimetre;\n" +
+            "\n" +
+            "    @Column(name = \"spaceBtwLine\")\n" +
+            "    private float espacementEntreLignesEnCentimetre;\n" +
+            "\n" +
+            "    @Column(name = \"advice\")\n" +
+            "    private String conseil;\n" +
+            "\n" +
+            "    @NotNull(message = \"Le type de graine doit être associé à une famille\")\n" +
+            "    @ManyToOne\n" +
+            "    @JoinColumn(name = \"famille_id\")\n" +
+            "    private Famille famille;\n" +
+            "    @OneToMany(mappedBy = \"typeDeGraine\")\n" +
+            "    private List<Sachet> sachets;\n" +
+            "    @ManyToMany\n" +
+            "    @JoinTable(\n" +
+            "            name = \"typeDeGraine_recette\",\n" +
+            "            joinColumns = @JoinColumn(name = \"typeDeGraine_id\"),\n" +
+            "            inverseJoinColumns = @JoinColumn(name = \"recette_id\")\n" +
+            "    )\n" +
+            "    private List<Recette> recettes;\npaceBtwLine")
     private float espacementEntreLignesEnCentimetre;
 
     @Column(name = "advice")
     private String conseil;
 
+    @NotNull(message = "Le type de graine doit être associé à une famille")
     @ManyToOne
     @JoinColumn(name = "famille_id")
     private Famille famille;
