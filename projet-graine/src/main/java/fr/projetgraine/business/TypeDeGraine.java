@@ -1,8 +1,6 @@
 package fr.projetgraine.business;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class TypeDeGraine {
@@ -23,4 +21,8 @@ public class TypeDeGraine {
     private float espacementEntreLignesEnCentimetre;
 
     private String conseil;
+
+    @ManyToOne
+    @JoinColumn(name = "famille_id")
+    private Famille famille;
 }
