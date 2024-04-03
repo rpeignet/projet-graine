@@ -14,7 +14,7 @@ public class Sachet {
     @ManyToOne
     @JoinColumn(name = "typedegraine_id")
     private TypeDeGraine typeDeGraine;
-    @OneToMany(mappedBy = "sachet")
+    @OneToMany
     @JoinColumn(name = "lignecommande_id")
     private List<LigneCommande> lignesCommande;
     @ManyToOne
