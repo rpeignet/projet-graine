@@ -9,7 +9,7 @@ import java.util.List;
 @Entity
 public class Recette {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotNull(message = "L'intitulé de la recette ne doit pas être null")
