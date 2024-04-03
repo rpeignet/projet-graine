@@ -22,4 +22,11 @@ public class TypeDeGraine {
     @OneToMany
     @JoinColumn(name = "sachet_id")
     private List<Sachet> sachets;
+    @ManyToMany
+    @JoinTable(
+            name = "typeDeGraine_recette",
+            joinColumns = @JoinColumn(name = "typeDeGraine_id"),
+            inverseJoinColumns = @JoinColumn(name = "recette_id")
+    )
+    private List<Recette> recettes;
 }
