@@ -34,4 +34,9 @@ public class TypeDeGraineServiceImpl implements TypeDeGraineService {
                 .collect(Collectors.toList());
     }
 
+    @Override
+    public List<TypeDeGraine> findPlantableSeedsForCurrentWeek() {
+        int currentWeek = LocalDate.now().get(IsoFields.WEEK_OF_WEEK_BASED_YEAR);
+        return typeDeGraineRepository.findPlantableSeedsForWeek(currentWeek);
+    }
 }
