@@ -17,6 +17,6 @@ public class Recette {
 
     private String contenu;
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "recettes")
     private List<TypeDeGraine> typeDeGraines;
 }

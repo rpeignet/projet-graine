@@ -29,5 +29,10 @@ public class TypeDeGraine {
     private Famille famille;
 
     @ManyToMany
-    private List<Recette> recette;
+    @JoinTable(
+            name = "typeDeGraine_recette",
+            joinColumns = @JoinColumn(name = "typeDeGraine_id"),
+            inverseJoinColumns = @JoinColumn(name = "recette_id")
+    )
+    private List<Recette> recettes;
 }
