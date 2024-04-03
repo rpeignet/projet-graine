@@ -1,10 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Liste des sachets</title>
 </head>
 <body>
-$END$
+<h1>Liste des sachets</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Identifiant</th>
+        <th>Poids (g)</th>
+        <th>Prix (€)</th>
+        <th>Type de Graine</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="sachet : ${sachets}">
+        <td th:text="${sachet.id}">Identifiant</td>
+        <td th:text="${sachet.poidsEnGrammes}">Poids</td>
+        <td th:text="${sachet.prixEnEuros}">Prix</td>
+        <td th:text="${sachet.typeDeGraine.nom}">Type de Graine</td>
+        <td>
+            <form th:action="@{/deleteSachet}" method="post">
+                <input type="hidden" name="sachetId" th:value="${sachet.id}">
+                <button type="submit">Supprimer</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<form th:action="@{/addSachet}" method="post">
+    <button type="submit">Ajouter un sachet</button>
+</form>
 </body>
 </html>
