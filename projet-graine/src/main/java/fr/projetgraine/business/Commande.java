@@ -21,5 +21,4 @@ public class Commande {
     @ManyToOne
     @JoinColumn(name = "jardinier_id")
     private Jardinier jardinier;
-
 }
