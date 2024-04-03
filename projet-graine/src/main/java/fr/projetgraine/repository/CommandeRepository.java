@@ -15,5 +15,4 @@ public interface CommandeRepository extends JpaRepository<Commande, Long> {
 
     @Query("SELECT c FROM Commande c JOIN FETCH c.lignesCommande")
     List<Commande> findAllWithLignesCommande();
-
 }

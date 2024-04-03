@@ -26,14 +26,6 @@ public class TypeDeGraineServiceImpl implements TypeDeGraineService {
         return typeDeGraineRepository.findByIdFamille(idFamille);
     }
 
-    public List<TypeDeGraine> findPlantableSeeds() {
-        int currentWeek = LocalDate.now().get(IsoFields.WEEK_OF_WEEK_BASED_YEAR);
-        List<TypeDeGraine> allSeeds = typeDeGraineRepository.findAll();
-        return allSeeds.stream()
-                .filter(seed -> seed.getSemaineDePlantationMin() <= currentWeek && seed.getSemaineDePlantationMax() >= currentWeek)
-                .collect(Collectors.toList());
-    }
-
     @Override
     public List<TypeDeGraine> findPlantableSeedsForCurrentWeek() {
         int currentWeek = LocalDate.now().get(IsoFields.WEEK_OF_WEEK_BASED_YEAR);

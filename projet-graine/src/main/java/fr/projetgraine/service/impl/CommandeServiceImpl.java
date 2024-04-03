@@ -12,7 +12,6 @@ import java.util.stream.Collectors;
 
 @Service
 public class CommandeServiceImpl implements CommandeService {
-
     private final CommandeRepository commandeRepository;
 
     @Autowired
