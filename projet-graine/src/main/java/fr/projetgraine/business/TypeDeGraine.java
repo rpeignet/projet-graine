@@ -62,11 +62,4 @@ public class TypeDeGraine {
     public String getNom() {
         return nom;
     }
-    public int getSemaineDePlantationMin() {
-        return semaineDePlantationMin;
-    }
-
-    public int getSemaineDePlantationMax() {
-        return semaineDePlantationMax;
-    }
 }
