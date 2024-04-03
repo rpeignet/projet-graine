@@ -24,4 +24,16 @@ public class Recette {
     @ManyToOne
     @JoinColumn(name = "jardinier_id")
     private Jardinier jardinier;
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getIntitule() {
+        return intitule;
+    }
+
+    public List<TypeDeGraine> getTypeDeGraines() {
+        return typeDeGraines;
+    }
 }

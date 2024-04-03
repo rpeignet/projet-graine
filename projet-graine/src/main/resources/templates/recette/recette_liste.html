@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des recette</title>
+</head>
+<body>
+<h1>Liste des recettes</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Intitulé</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="recette : ${recettes}">
+        <td>
+            <form th:action="@{/Recette/findGrainesById}" method="get">
+                <input type="hidden" name="recetteId" th:value="${recette.getId()}" />
+                <button type="submit" th:text="${recette.getIntitule()}"></button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<style>
+    body{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+</style>
+</body>
+</html>

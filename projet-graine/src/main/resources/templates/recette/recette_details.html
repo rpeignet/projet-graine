@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Détails recette</title>
+</head>
+<body>
+<h3>Graine à commander pour la recette : </h3>
+<table>
+    <thead>
+    <tr>
+        <th>Nom graine</th>
+        <!-- Ajoutez plus de colonnes si nécessaire -->
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Utilisez Thymeleaf pour itérer sur la liste de types de graines -->
+    <tr th:each="graine : ${graines}">
+        <td th:text="${graine.getNom()}"></td>
+        <!-- Ajoutez plus de cellules si nécessaire -->
+    </tr>
+    </tbody>
+</table>
+<style>
+    body{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+</style>
+</body>
+</html>
