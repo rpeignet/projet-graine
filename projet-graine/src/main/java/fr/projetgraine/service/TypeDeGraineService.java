@@ -7,5 +7,7 @@ import java.util.List;
 public interface TypeDeGraineService {
     public List<TypeDeGraine> findAll();
     public List<TypeDeGraine> findByIdFamille(Long idFamille);
+    public List<TypeDeGraine> findPlantableSeedsForCurrentWeek();
+
 }
 
