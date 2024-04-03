@@ -2,6 +2,8 @@ package fr.projetgraine.business;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 public class TypeDeGraine {
     @Id
@@ -25,4 +27,7 @@ public class TypeDeGraine {
     @ManyToOne
     @JoinColumn(name = "famille_id")
     private Famille famille;
+
+    @ManyToMany
+    private List<Recette> recette;
 }
