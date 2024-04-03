@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des graines potagères</title>
+</head>
+<body>
+<h1>Liste des graines potagères</h1>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nom</th>
+        <th>Description</th>
+        <!-- Ajoutez plus de colonnes si nécessaire -->
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Utilisez Thymeleaf pour itérer sur la liste de recettes -->
+    <tr th:each="Graines : ${typeDeGraines}">
+        <!-- Ajoutez plus de cellules si nécessaire -->
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

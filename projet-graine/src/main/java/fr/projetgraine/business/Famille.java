@@ -1,9 +1,6 @@
 package fr.projetgraine.business;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
 
 import java.util.List;
@@ -11,7 +8,7 @@ import java.util.List;
 @Entity
 public class Famille {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String nom;
