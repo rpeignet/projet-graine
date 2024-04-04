@@ -15,7 +15,7 @@ import java.util.List;
 
 @Controller
 @AllArgsConstructor
-@RequestMapping("Recette")
+@RequestMapping("recette")
 public class RecetteController {
     private RecetteService recetteService;
 

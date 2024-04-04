@@ -3,31 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <title>Détails recette</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+        h3 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 50%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        tr:hover {
+            background-color: #f2f2f2;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
 </head>
 <body>
-<h3>Graine à commander pour la recette : </h3>
+<h3>Graines à commander pour la recette :</h3>
 <table>
     <thead>
     <tr>
-        <th>Nom graine</th>
-        <!-- Ajoutez plus de colonnes si nécessaire -->
+        <th>Nom de la graine</th>
     </tr>
     </thead>
     <tbody>
-    <!-- Utilisez Thymeleaf pour itérer sur la liste de types de graines -->
     <tr th:each="graine : ${graines}">
         <td th:text="${graine.getNom()}"></td>
-        <!-- Ajoutez plus de cellules si nécessaire -->
     </tr>
     </tbody>
 </table>
-<style>
-    body{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-    }
-</style>
 </body>
 </html>
