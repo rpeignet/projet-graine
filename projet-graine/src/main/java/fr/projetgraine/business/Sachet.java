@@ -8,7 +8,7 @@ import java.util.List;
 @Entity
 public class Sachet {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private int poidsEnGrammes;
     @Getter
@@ -22,4 +22,29 @@ public class Sachet {
     @ManyToOne
     private Fournisseur fournisseur;
 
+    public Sachet() {
+    }
+
+    public Sachet(int poidsEnGrammes, float prixEnEuros, TypeDeGraine typeDeGraine, Fournisseur fournisseur) {
+        this.poidsEnGrammes = poidsEnGrammes;
+        this.prixEnEuros = prixEnEuros;
+        this.typeDeGraine = typeDeGraine;
+        this.fournisseur = fournisseur;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public int getPoidsEnGrammes() {
+        return poidsEnGrammes;
+    }
+
+    public float getPrixEnEuros() {
+        return prixEnEuros;
+    }
+
+    public TypeDeGraine getTypeDeGraine() {
+        return typeDeGraine;
+    }
 }

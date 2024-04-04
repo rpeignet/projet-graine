@@ -1,5 +1,7 @@
 INSERT INTO UTILISATEUR (date_de_naissance, dtype, adresse_email, mot_de_passe, nom, prenom)
 VALUES ('1990-01-01', 'test', 'exemple@example.com', 'motdepasse', 'Doe', 'John');
+INSERT INTO UTILISATEUR (numero_portable, dtype, adresse_email, mot_de_passe, nom, prenom)
+VALUES ('0606060606', 'test', 'exemple@example.com', 'motdepasse', 'Martin', 'Pierre');
 
 INSERT INTO RECETTE(jardinier_id, contenu, intitule) VALUES (1, 'Description recette...', 'Pâtes au légumes');
 
@@ -24,3 +26,6 @@ VALUES ('Tomate', 21, 24, 90, 80, 1);
 INSERT INTO TYPE_DE_GRAINE_RECETTE (recette_id, type_de_graine_id) VALUES (1, 2);
 INSERT INTO TYPE_DE_GRAINE_RECETTE (recette_id, type_de_graine_id) VALUES (1, 7);
 INSERT INTO TYPE_DE_GRAINE_RECETTE (recette_id, type_de_graine_id) VALUES (1, 3);
+
+INSERT INTO SACHET(poids_en_grammes, prix_en_euros, fournisseur_id, typedegraine_id)
+VALUES (50, 5.50, 1, 2);

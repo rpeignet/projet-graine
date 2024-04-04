@@ -18,21 +18,53 @@
     </thead>
     <tbody>
     <tr th:each="sachet : ${sachets}">
-        <td th:text="${sachet.id}">Identifiant</td>
-        <td th:text="${sachet.poidsEnGrammes}">Poids</td>
-        <td th:text="${sachet.prixEnEuros}">Prix</td>
-        <td th:text="${sachet.typeDeGraine.nom}">Type de Graine</td>
+        <td th:text="${sachet.getId()}">Identifiant</td>
+        <td th:text="${sachet.getPoidsEnGrammes()}">Poids</td>
+        <td th:text="${sachet.getPrixEnEuros()}">Prix</td>
+        <td th:text="${sachet.getTypeDeGraine.getNom()}">Type de Graine</td>
         <td>
             <form th:action="@{/deleteSachet}" method="post">
-                <input type="hidden" name="sachetId" th:value="${sachet.id}">
+                <input type="hidden" name="sachetId" th:value="${sachet.getId()}">
                 <button type="submit">Supprimer</button>
             </form>
         </td>
     </tr>
     </tbody>
 </table>
-<form th:action="@{/addSachet}" method="post">
-    <button type="submit">Ajouter un sachet</button>
-</form>
+<button id="showFormBtn" onclick="showForm()">Ajouter un sachet</button>
+
+<div id="sachetForm" style="display: none;">
+    <form th:action="@{/insertSachet}" th:object="${sachetDTO}" method="post">
+        <label for="poidsEnGrammes">Poids en grammes:</label>
+        <input type="number" id="poidsEnGrammes" name="poidsEnGrammes" required>
+        <br>
+        <label for="prixEnEuros">Prix en euros:</label>
+        <input type="number" id="prixEnEuros" name="prixEnEuros" step="0.01" required>
+        <br>
+        <label for="typeDeGraine">Type de graine:</label>
+        <select id="typeDeGraine" name="idTypeDeGraine" required>
+            <option th:each="typeDeGraine : ${typeDeGraines}"
+                    th:value="${typeDeGraine.getId()}"
+                    th:text="${typeDeGraine.getNom()}">
+            </option>
+        </select>
+        <button type="submit">Valider</button>
+    </form>
+</div>
+
+<script th:inline="javascript">
+    function showForm() {
+        var formDiv = document.getElementById("sachetForm");
+        var showFormBtn = document.getElementById("showFormBtn");
+
+        if (formDiv.style.display === "none") {
+            formDiv.style.display = "block";
+            showFormBtn.textContent = "Annuler";
+        } else {
+            formDiv.style.display = "none";
+            showFormBtn.textContent = "Ajouter un sachet";
+        }
+    }
+</script>
 </body>
 </html>
