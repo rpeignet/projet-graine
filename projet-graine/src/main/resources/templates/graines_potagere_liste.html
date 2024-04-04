@@ -19,15 +19,12 @@
     <tr>
         <th>ID</th>
         <th>Nom</th>
-        <!-- Ajoutez plus de colonnes si nécessaire -->
     </tr>
     </thead>
     <tbody id="typeGraineBody">
-    <!-- Utilisez Thymeleaf pour itérer sur la liste de types de graines -->
     <tr th:each="typeDeGraine : ${typeDeGraines}">
         <td th:text="${typeDeGraine.getId()}"></td>
         <td th:text="${typeDeGraine.getNom()}"></td>
-        <!-- Ajoutez plus de cellules si nécessaire -->
     </tr>
     </tbody>
 </table>
@@ -39,5 +36,13 @@
         document.location = url
     }
 </script>
+<style>
+    body{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+</style>
 </body>
 </html>
