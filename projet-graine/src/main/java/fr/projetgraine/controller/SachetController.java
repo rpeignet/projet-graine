@@ -8,6 +8,7 @@ import fr.projetgraine.service.SachetService;
 import fr.projetgraine.service.TypeDeGraineService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
@@ -32,6 +33,12 @@ public class SachetController {
                              @RequestParam("idTypeDeGraine") String idTypeDeGraine, Model model){
         SachetDTO sachetDTO = new SachetDTO(poidsEnGrammes, prixEnEuros, idTypeDeGraine);
         sachetService.insertSachet(sachetDTO);
+        return afficherListeSachets(model);
+    }
+    @Transactional
+    @PostMapping("/deleteSachet")
+    public String deleteSachet(@RequestParam("sachetId") Long sachetId, Model model) {
+        sachetService.deleteSachetById(sachetId);
         return afficherListeSachets(model);
     }
 }
