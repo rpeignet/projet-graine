@@ -1,7 +1,7 @@
 INSERT INTO UTILISATEUR (date_de_naissance, dtype, adresse_email, mot_de_passe, nom, prenom)
-VALUES ('1990-01-01', 'test', 'exemple@example.com', 'motdepasse', 'Doe', 'John');
+VALUES ('1990-01-01', 'Jardinier', 'exemple@example.com', 'motdepasse', 'Doe', 'John');
 INSERT INTO UTILISATEUR (numero_portable, dtype, adresse_email, mot_de_passe, nom, prenom)
-VALUES ('0606060606', 'test', 'exemple@example.com', 'motdepasse', 'Martin', 'Pierre');
+VALUES ('0606060606', 'Fournisseur', 'exemple@example.com', 'motdepasse', 'Martin', 'Pierre');
 
 INSERT INTO RECETTE(jardinier_id, contenu, intitule) VALUES (1, 'Description recette...', 'Pâtes au légumes');
 

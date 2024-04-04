@@ -27,10 +27,11 @@ public class SachetController {
         return "sachets_fournisseur";
     }
     @PostMapping("/insertSachet")
-    public void insertSachet(@RequestParam("poidsEnGrammes") int poidsEnGrammes,
+    public String insertSachet(@RequestParam("poidsEnGrammes") int poidsEnGrammes,
                              @RequestParam("prixEnEuros") float prixEnEuros,
-                             @RequestParam("idTypeDeGraine") String idTypeDeGraine){
+                             @RequestParam("idTypeDeGraine") String idTypeDeGraine, Model model){
         SachetDTO sachetDTO = new SachetDTO(poidsEnGrammes, prixEnEuros, idTypeDeGraine);
         sachetService.insertSachet(sachetDTO);
+        return afficherListeSachets(model);
     }
 }

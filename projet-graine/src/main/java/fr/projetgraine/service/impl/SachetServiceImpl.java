@@ -7,9 +7,7 @@ import fr.projetgraine.business.TypeDeGraine;
 import fr.projetgraine.business.Utilisateur;
 import fr.projetgraine.repository.SachetRepository;
 import fr.projetgraine.repository.UtilisateurRepository;
-import fr.projetgraine.service.SachetService;
-import fr.projetgraine.service.TypeDeGraineService;
-import fr.projetgraine.service.UtilisateurService;
+import fr.projetgraine.service.*;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,7 +20,7 @@ public class SachetServiceImpl implements SachetService {
 
     private SachetRepository sachetRepository;
     private TypeDeGraineService typeDeGraineService;
-    private UtilisateurService utilisateurService;
+    private FournisseurService fournisseurService;
 
     @Override
     public List<Sachet> findAll() {
@@ -31,10 +29,10 @@ public class SachetServiceImpl implements SachetService {
 
     @Override
     public void insertSachet(SachetDTO sachetDTO) {
-        // Fournisseur_id à changer (passer l'ID du Fournisseur connecté)
         TypeDeGraine typeDeGraine = typeDeGraineService.findById(Long.valueOf(sachetDTO.idTypeDeGraine));
-        Utilisateur utilisateur = utilisateurService.findById(2L);
-        Sachet sachet = new Sachet(sachetDTO.poidsEnGrammes, sachetDTO.prixEnEuros, typeDeGraine, (Fournisseur) utilisateur);
+        // Fournisseur_id à changer (passer l'ID du Fournisseur connecté)
+        Fournisseur fournisseur = fournisseurService.findById(2L);
+        Sachet sachet = new Sachet(sachetDTO.poidsEnGrammes, sachetDTO.prixEnEuros, typeDeGraine, fournisseur);
         sachetRepository.save(sachet);
     }
 
