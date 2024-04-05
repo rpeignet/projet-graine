@@ -10,5 +10,4 @@ public interface RecetteRepository extends JpaRepository<Recette, Long> {
     @Query("SELECT r FROM Recette r JOIN r.typeDeGraines t GROUP BY r ORDER BY COUNT(t) DESC")
     List<Recette> findRecettesSortedByTypeDeGraineCount();
 
-
 }
