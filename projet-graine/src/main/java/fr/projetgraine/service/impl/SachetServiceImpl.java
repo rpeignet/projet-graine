@@ -37,8 +37,8 @@ public class SachetServiceImpl implements SachetService {
     }
 
     @Override
-    public void deleteSachetById(Long idSachet) {
-        sachetRepository.deleteSachetById(idSachet);
+    public void deleteById(Long idSachet) {
+        sachetRepository.deleteById(idSachet);
     }
 
     @Override

@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface SachetService {
     public List<Sachet> findAll();
-    public void deleteSachetById(Long idSachet);
+    public void deleteById(Long idSachet);
     public void insertSachet(SachetDTO sachetDTO);
     public List<Sachet> findSachetsOrderedByQuantiteCommandee();
 }

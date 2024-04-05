@@ -14,5 +14,5 @@ public interface SachetRepository extends JpaRepository<Sachet, Long> {
     @Query("SELECT s FROM Sachet s JOIN s.lignesCommande lc GROUP BY s ORDER BY SUM(lc.quantite) DESC")
     List<Sachet> findSachetsOrderedByQuantiteCommandeeDesc();
 
-    void deleteSachetById(Long idSachet);
+    void deleteById(Long idSachet);
 }

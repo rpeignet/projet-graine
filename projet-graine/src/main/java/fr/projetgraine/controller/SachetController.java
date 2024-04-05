@@ -38,7 +38,7 @@ public class SachetController {
     @Transactional
     @PostMapping("/deleteSachet")
     public String deleteSachet(@RequestParam("sachetId") Long sachetId, Model model) {
-        sachetService.deleteSachetById(sachetId);
+        sachetService.deleteById(sachetId);
         return afficherListeSachets(model);
     }
 }
